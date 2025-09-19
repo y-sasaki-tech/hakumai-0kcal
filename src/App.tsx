@@ -46,8 +46,7 @@ function App() {
       return;
     }
 
-    const appUrl =
-      typeof window !== "undefined" ? window.location.href : "https://example.com";
+    const appUrl = "https://y-sasaki-tech.github.io/hakumai-0kcal/";
     const shareBody = `${message}\n${appUrl}\n#魔法のカロリー診断`;
 
     if (navigator.share) {
