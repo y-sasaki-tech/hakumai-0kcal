@@ -36,12 +36,6 @@ function App() {
     []
   );
 
-  const openXIntent = (text: string) => {
-    const tweetUrl = new URL("https://twitter.com/intent/tweet");
-    tweetUrl.searchParams.set("text", text);
-    window.open(tweetUrl.toString(), "_blank", "noopener,noreferrer");
-  };
-
   const handleShare = () => {
     if (!message) {
       return;
@@ -50,16 +44,9 @@ function App() {
     const appUrl = "https://y-sasaki-tech.github.io/hakumai-0kcal/";
     const shareBody = `${message}\n${appUrl}\n#魔法のカロリー診断`;
 
-    if (navigator.share) {
-      navigator
-        .share({ text: shareBody })
-        .catch(() => {
-          openXIntent(shareBody);
-        });
-      return;
-    }
-
-    openXIntent(shareBody);
+    const tweetUrl = new URL("https://twitter.com/intent/tweet");
+    tweetUrl.searchParams.set("text", shareBody);
+    window.open(tweetUrl.toString(), "_blank", "noopener,noreferrer");
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
