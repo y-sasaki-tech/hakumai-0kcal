@@ -42,10 +42,9 @@ function App() {
     }
 
     const appUrl = "https://y-sasaki-tech.github.io/hakumai-0kcal/";
-    const shareBody = `${message}\n${appUrl}\n#魔法のカロリー診断`;
-
     const tweetUrl = new URL("https://twitter.com/intent/tweet");
-    tweetUrl.searchParams.set("text", shareBody);
+    tweetUrl.searchParams.set("text", `${message}\n#魔法のカロリー診断`);
+    tweetUrl.searchParams.set("url", appUrl);
     window.open(tweetUrl.toString(), "_blank", "noopener,noreferrer");
   };
 
