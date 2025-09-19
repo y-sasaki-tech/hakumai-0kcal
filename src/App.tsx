@@ -5,6 +5,7 @@ import {
   Container,
   Divider,
   Fade,
+  Link,
   List,
   ListItem,
   Paper,
@@ -129,7 +130,7 @@ function App() {
               </Button>
             </Stack>
 
-            <Fade in={Boolean(message)}>
+            <Fade in={Boolean(message)} mountOnEnter unmountOnExit>
               <Box sx={{ mt: 4 }}>
                 <Typography variant="overline" color="secondary" gutterBottom>
                   判定速報
@@ -176,6 +177,19 @@ function App() {
             </Paper>
           )}
         </Stack>
+        <Box component="footer" sx={{ mt: 6, textAlign: "center" }}>
+          <Typography variant="body2" color="text.secondary">
+            製作者: {" "}
+            <Link
+              href="https://x.com/hakumai_0kcal"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+            >
+              @hakumai_0kcal
+            </Link>
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );
